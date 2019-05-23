@@ -1,0 +1,6 @@
+node_modules
+src/client/build
+src/client/app/statics.js
+.vscode
+.env
+ssh

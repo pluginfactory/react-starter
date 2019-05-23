@@ -1,0 +1,7 @@
+Dockerfile
+node_modules
+.circleci
+.vscode
+*.log
+.gitignore
+deploy-build.sh

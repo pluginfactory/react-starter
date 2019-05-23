@@ -1,0 +1,25 @@
+@import '../../styles/globals';
+
+.header1 {
+	opacity: 1;
+	box-shadow: 0px 0px 15px 3px silver;
+	background: #fafafa;
+
+	span {
+		position: absolute;
+		right: 0;
+		top: 0;
+		margin-top:15px;
+		margin-right: 10px;
+
+		a {
+			cursor: pointer;
+			color: white;
+			transition: all .25s ease-in-out;
+		}
+		a:hover {
+			color: #e21a1b;
+			text-decoration: none;
+		}
+	}
+}

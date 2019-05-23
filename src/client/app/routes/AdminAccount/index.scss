@@ -1,0 +1,72 @@
+@import '../../styles/globals';
+
+.admin-list-group-item {
+	background: #383838;
+	cursor: pointer;
+}
+
+.logo-text-navigation {
+	color: $theme_color_1;
+	font-size: 14px;
+	padding: 10px;
+	text-align: center;
+	font-family: $logo_font_family;
+}
+.leftNavigation {
+	background: #383838;
+	// border-top-right-radius: 5px;
+	// border-bottom-right-radius: 5px;
+	height: 100%;
+	position: fixed;
+	width: 170px;
+	box-shadow: 3px 10px 10px 1px silver;
+
+	.navigationMenu {
+		padding: 10px;
+
+		.navigationHeader {
+			color: silver;
+			font-size: 12px;
+		}
+
+		.navigationItem {
+			padding: 10px;
+			color: grey;
+			cursor: pointer;
+			transition: all .25s ease-in-out;
+			display: block;
+			width: 100%;
+			border: none;
+			background: none;
+			outline: none;
+			text-align: left;
+			border-bottom: solid 1px transparent;
+		}
+		.navigationItem:hover {
+			color: $theme_color_4;
+		}
+
+		.activeItem {
+			// background: $theme_background;
+			color: $theme_background;
+			// border-radius: 5px;
+			font-weight: bold;
+			// border: solid 1px $theme_color_1;
+			outline: none;
+		}
+		.activeItem:hover {
+			color: #fff;
+		}
+
+	}
+}
+.dynamicContainer {
+	padding: 10px;
+	margin-left: 180px;
+}
+.customColumn {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	margin: 0px;
+	border-spacing: 0px;
+}

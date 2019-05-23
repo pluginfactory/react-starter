@@ -1,0 +1,45 @@
+@import '../../styles/globals';
+
+.logo-text {
+	font-family: $logo_font;
+	color: $theme_color_1;
+}
+.custom-field {
+	border: none;
+	padding: $global_container_padding;
+	color: $global_black_color;
+	background: #f0f0f0;
+	width: 35vmax;
+	border-radius: $global_border_radius;
+}
+.custom-field-1 {
+	border: none;
+	padding: $global_container_padding;
+	color: $global_black_color;
+	background: #f0f0f0;
+	width: 300px;
+	border-radius: $global_border_radius;
+}
+.custom-form {
+	background: none;
+}
+.login-btn {
+	background: $theme_color_1;
+	border: none;
+	padding: $global_container_padding;
+	padding-left: $global_container_padding*4;
+	padding-right: $global_container_padding*4;
+	border-radius: 3px;
+	color: $global_white_color;
+	cursor: pointer;
+}
+.custom-field:focus {
+	outline: none;
+}
+.admin-login {
+	padding: 10px;
+	border-radius: 3px;
+}
+.login-field {
+	width: 100%;
+}

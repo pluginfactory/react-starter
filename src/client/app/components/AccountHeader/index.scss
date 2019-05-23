@@ -1,0 +1,33 @@
+@import '../../styles/globals';
+
+.account-header {
+	background: #fafafa;
+	padding: 10px;
+	color: #383838;
+	border-bottom: solid 2px #f0f0f0;
+
+	.logo-text-account {
+		font-family: $logo_font;
+		color: $theme_color_1;
+		font-size: 20px;
+		margin-top: 15px;
+	}
+
+	span {
+		position: absolute;
+		right: 0;
+		top: 0;
+		margin-right: 10px;
+		margin-top: 20px;
+
+		a {
+			cursor: pointer;
+			color: silver;
+			transition: all .25s ease-in-out;
+		}
+		a:hover {
+			color: #e21a1b;
+			text-decoration: none;
+		}
+	}
+}

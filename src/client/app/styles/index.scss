@@ -1,0 +1,20 @@
+@import "globals";
+
+* {
+	margin: $global_margin;
+	padding: $global_padding;
+	transition: $global_transition;
+	-moz-transition: $global_transition;
+	-webkit-transition: $global_transition;
+	font-family: $global_font;
+}
+body {
+	background: #fafafa;
+
+	input[type=number]::-webkit-inner-spin-button, 
+	input[type=number]::-webkit-outer-spin-button { 
+		-webkit-appearance: none; 
+		margin: 0; 
+	}
+	overflow-x: hidden;
+}

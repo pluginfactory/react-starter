@@ -1,0 +1,147 @@
+
+// importing the default font for application
+$font_family: 'Montserrat';
+$logo_font_family: 'Montserrat';
+@import url('https://fonts.googleapis.com/css?family=#{$font_family}');
+@import url('https://fonts.googleapis.com/css?family=#{$logo_font_family}');
+
+// $theme_color_1: #3e84c0;
+$theme_color_1: #f98036;
+$theme_color_2: #f98036;
+$theme_color_3: #f98036;
+$theme_color_4: #f98036;
+
+$theme_color: rgb(121,177,222);
+$theme_background: linear-gradient(90deg, $theme_color_2 0%, $theme_color_3 35%, $theme_color_4 100%);
+
+// $theme_background: linear-gradient(30deg, #EE5A3B 0%, #F8AF30 100%); /* w3c */
+// $theme_background:linear-gradient(30deg, #72c7ed 10%, #8390c6 100%); /* w3c */
+$theme_background: #f98036;
+
+// global transition factor
+$global_transition: all .20s ease-in-out;
+$global_margin: 0px;
+$global_padding: 0px;
+$global_header_gradient: $theme_background;
+$global_box_shadow: 0px 0px 10px 1px silver;
+$global_font: $font_family;
+$heading_font: $font_family;
+$logo_font: $logo_font_family;
+
+$global_component_margin: 20px;
+$global_border_radius: 5px;
+$global_container_padding: 10px;
+$global_black_color: #383838;
+$global_white_color: #fff;
+
+.litnite-btn {
+	background: $theme_background;
+	border: none;
+	padding: $global_container_padding;
+	padding-left: $global_container_padding*4;
+	padding-right: $global_container_padding*4;
+	border-radius: 3px;
+	color: $global_white_color;
+	cursor: pointer;
+	margin-top: 3px;
+	outline: none;
+	// box-shadow: 2px 2px 10px 1px silver;
+	outline: none;
+}
+.litnite-btn:focus{
+	outline: none;
+}
+.litnite-btn:hover {
+	box-shadow: 3px 3px 10px 1px silver;
+}
+.app-btn:active {
+	outline: none;
+}
+
+.app-btn {
+	background: $theme_background;
+	border: none;
+	padding: $global_container_padding;
+	padding-left: $global_container_padding*4;
+	padding-right: $global_container_padding*4;
+	border-radius: 3px;
+	color: $global_white_color;
+	cursor: pointer;
+	margin-top: 3px;
+	outline: none;
+	box-shadow: none;
+	outline: none;
+	margin-left: 3px;
+	margin-right: 3px;
+	outline: none;
+}
+.app-btn-danger {
+	background: #de3925;
+}
+.app-btn:focus{
+	outline: none;
+}
+.app-btn:hover {
+	box-shadow: 3px 3px 10px 1px silver;
+}
+
+.bg-dark {
+	background: $global_black_color;
+}
+
+.line-break {
+	background: $theme_color;
+}
+.active-menu {
+	color: $theme_color_4;
+}
+.application-table {
+	zoom: 0.9
+}
+.plain {
+	// background: $theme_color;
+}
+.verify {
+	background: #508fce;
+}
+.recover {
+	background: #d4b922;
+}
+.delete {
+	background: #c13731;
+	transition: all .25s ease-in-out;
+}
+.delete:hover {
+	box-shadow: 3px 5px 10px 1px silver;
+}
+.green {
+	background: #3fa38a;
+	transition: all .25s ease-in-out;
+}
+.green:hover {
+	box-shadow: 3px 5px 10px 1px silver;
+}
+.grey {
+	background: #383838;
+}
+.input-field {
+	padding: 5px;
+	border: none;
+	width: 100%;
+	outline: none;
+	border-radius: 3px;
+	border: solid 1px silver;
+}
+.input-field:focus {
+	outline: none
+}
+.app-textarea {
+	resize: none;
+	padding: 5px;
+	border: none;
+	outline: none;
+	border-radius: 3px;
+	min-width: 500px;
+	border: solid 1px silver;
+	min-height: 300px;
+}
