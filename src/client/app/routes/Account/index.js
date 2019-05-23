@@ -6,12 +6,12 @@ import { browserHistory } from 'react-router';
 import { navigationIndexer } from '../../constants';
 import { switchNavigation } from '../../redux/actions';
 // loading assets
-import Events from '../Events';
-import Tournament from '../Tournament';
+import Dashboard from '../Dashboard';
+import Image from '../../components/Image';
 import logo from '../../assets/images/logo.png';
 import './index.scss';
 
-class AdminIndex extends Component {
+class Account extends Component {
 	constructor(props) {
 		super(props);
 
@@ -51,19 +51,20 @@ class AdminIndex extends Component {
 		return <section>
 			<section className='leftNavigation'>
 				<section className="navigationMenu">
-					<p className="navigationHeader">LOGGED USER</p>
-					<i style={{ color: 'silver' }}>{localStorage.getItem('user')}</i>
+					<p className='text-center'><Image image={logo} /></p>
+					{/* <p className="navigationHeader">LOGGED USER</p>
+					<i style={{ color: 'silver' }}>{localStorage.getItem('user')}</i> */}
 				</section>
 				<section className="navigationMenu">
-					<p className="navigationHeader">Events</p>
-					<button name='events' className={`navigationItem ${active === navigationIndexer.events ? 'activeItem' : ''}`} onClick={this.handleSwitch}>
-						<FontAwesome id='events' name="events" onClick={this.handleSwitch} />&nbsp; Events
+					<p className="navigationHeader">Dashboard</p>
+					<button name='dashboard' className={`navigationItem ${active === navigationIndexer.dashboard ? 'activeItem' : ''}`} onClick={this.handleSwitch}>
+						<FontAwesome id='events' name="events" onClick={this.handleSwitch} />&nbsp; Dashboard
 					</button>
 				</section>
 				<section className="navigationMenu">
-					<p className="navigationHeader">Tournaments</p>
-					<button name='tournament' className={`navigationItem ${active === navigationIndexer.tournament ? 'activeItem' : ''}`} onClick={this.handleSwitch}>
-						<FontAwesome id='tournament' name="tournament" onClick={this.handleSwitch} />&nbsp; Tournament
+					<p className="navigationHeader">Contact Us</p>
+					<button name='contactUs' className={`navigationItem ${active === navigationIndexer.contactUs ? 'activeItem' : ''}`} onClick={this.handleSwitch}>
+						<FontAwesome id='tournament' name="tournament" onClick={this.handleSwitch} />&nbsp; Contact Us
 					</button>
 				</section>
 				<section className="navigationMenu">
@@ -74,7 +75,7 @@ class AdminIndex extends Component {
 				</section>
 			</section>
 			<section className='dynamicContainer'>
-				{this.props.children || <Events />}
+				{this.props.children || <Dashboard />}
 			</section>
 
 		</section>;
@@ -92,5 +93,5 @@ const mapStateToProps = state => {
 	return { fetching, active };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdminIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(Account);
 // export default AdminIndex;

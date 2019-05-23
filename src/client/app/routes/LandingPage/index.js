@@ -15,16 +15,12 @@ import { connect } from 'react-redux';
 import { userLogin } from '../../redux/actions';
 import { toast, ToastContainer } from 'react-toastify';
 import FontAwesome from 'react-fontawesome';
-import { browserHistory } from 'react-router';
-import { withRouter } from 'react-router-dom';
 
-import Image from '../../components/Image';
-import logo from '../../assets/images/logo.png';
 import LoadingOverlay from '../../components/LoadingOverlay';
 
 import './index.scss';
 
-class AdminComponent extends Component {
+class LandingPage extends Component {
 	constructor(props) {
 		super(props);
 
@@ -75,8 +71,7 @@ class AdminComponent extends Component {
 			localStorage.setItem('accessToken', data.accessToken);
 			localStorage.setItem('user', data.user.name);
 
-			console.log(this.props.router);
-			this.props.router.push('/adminAccount');
+			this.props.router.push('/account');
 		} else {
 			toast.error("Failed authentication.");
 		}
@@ -92,7 +87,7 @@ class AdminComponent extends Component {
 		const { fetching, login } = this.props;
 		{ login && this.responseHandler() }
 		return <section className='content' id='content'>
-			<LoadingOverlay fetching={fetching}/>
+			{/* <LoadingOverlay fetching={fetching}/> */}
 			<ToastContainer />
 			<section className='transparent-overlay'></section>
 			<br/><br/><br/>
@@ -102,7 +97,7 @@ class AdminComponent extends Component {
 					<Col md={4} sm={3} xs={2}></Col>
 					<Col md={4} sm={6} xs={8}>
 						<p className='text-center'>
-							<h2 className='logo-text'>Adeq web App</h2>
+							<h2 className='logo-text'>PluginFactory ReactJS Scaffold</h2>
 						</p>
 						<section className='user-login' id='user-login'>
 							<Form>
@@ -114,17 +109,13 @@ class AdminComponent extends Component {
 									<Label for="username">Password</Label><br/>
 									<input ref={userPass => this.userPass = userPass} type='password' className='custom-field login-field' placeholder='Password for user'/>
 								</FormGroup>
-								{/* <FormGroup>
-									<Label for="userlogin">login</Label><br/>
-									<input ref={userLogin => this.userLogin = userLogin} type='login' className='custom-field login-field' placeholder='login set true for user'/>
-								</FormGroup> */}
 								<p className='text-center'>
 									<button className="litnite-btn" onClick={this.onLogin}>LOGIN&nbsp;&nbsp;&nbsp;<FontAwesome name="chevron-right"/></button>
 								</p>
 							</Form>
 							<br/><br/><br/>
 							<hr className='line-break'/>
-							<p className='text-center'>Adeq web App&copy;2019</p>
+							<p className='text-center'>PluginFactory&copy;2019</p>
 						</section>
 					</Col>
 					<Col md={4} sm={3} xs={2}></Col>
@@ -147,4 +138,4 @@ const mapStateToProps = state => {
 	return { fetching, login };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdminComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);

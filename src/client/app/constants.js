@@ -13,6 +13,6 @@ export const APPLICATION_ROUTES = {
 };
 
 export const navigationIndexer = {
-	events: 1,
-	tournament: 2,
+	dashboard: 1,
+	contactUs: 2,
 };

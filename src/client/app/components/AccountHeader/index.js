@@ -1,6 +1,6 @@
 /**
  * the account index component
- * 
+ *
  */
 import React, { Component } from 'react';
 
@@ -24,7 +24,7 @@ export default class AccountHeader extends Component {
 		const { type } = this.props;
 		localStorage.removeItem('adminAccessToken');
 		window.location = '/';
-		
+
 	}
 	render() {
 		return <section className='account-header'>

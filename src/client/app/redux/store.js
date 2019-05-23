@@ -16,8 +16,8 @@ const enhancer = process.env.NODE_ENV === 'production' ? applyMiddleware(thunk) 
 export default (initialState = {}) => createStore(combineReducers({
 	fetching: reducers.fetchReducer,
 	login: reducers.loginReducer,
-	events: reducers.eventsReducer,
-	tournaments: reducers.tournamentReducer,
+	dashboard: reducers.eventsReducer,
+	contactus: reducers.tournamentReducer,
 	navigation: reducers.navigationReducer,
 	error: reducers.errorReducer,
 	routing: routerReducer,
