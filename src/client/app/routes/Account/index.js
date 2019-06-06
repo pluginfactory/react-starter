@@ -77,7 +77,6 @@ class Account extends Component {
 			<section className='dynamicContainer'>
 				{this.props.children || <Dashboard />}
 			</section>
-
 		</section>;
 	}
 }

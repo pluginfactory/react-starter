@@ -1,5 +1,5 @@
-# adeq web App application
-adeq App admin web app in ReactJS
+# pluginfactory React starter kit
+plugin factory react scaffold with react-routers
 
 ## RactJS library usage overview
 - react-router v3.0
