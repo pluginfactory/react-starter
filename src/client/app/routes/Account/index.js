@@ -58,7 +58,27 @@ class Account extends Component {
 				<section className="navigationMenu">
 					<p className="navigationHeader">Dashboard</p>
 					<button name='dashboard' className={`navigationItem ${active === navigationIndexer.dashboard ? 'activeItem' : ''}`} onClick={this.handleSwitch}>
-						<FontAwesome id='events' name="events" onClick={this.handleSwitch} />&nbsp; Dashboard
+						<FontAwesome id='users' name="events" onClick={this.handleSwitch} />&nbsp; Dashboard
+					</button>
+				</section>
+				<section className="navigationMenu">
+					<button name='Users' className={`navigationItem ${active === navigationIndexer.users ? 'activeItem' : ''}`} onClick={this.handleSwitch}>
+						<FontAwesome id='user' name="users" onClick={this.handleSwitch} />&nbsp; Users
+					</button>
+				</section>
+				<section className="navigationMenu">
+					<button name='Transaction' className={`navigationItem ${active === navigationIndexer.transaction ? 'activeItem' : ''}`} onClick={this.handleSwitch}>
+						<FontAwesome id='money-check-alt' name="transaction" onClick={this.handleSwitch} />&nbsp; Transaction
+					</button>
+				</section>
+				<section className="navigationMenu">
+					<button name='PushNotification' className={`navigationItem ${active === navigationIndexer.notifications ? 'activeItem' : ''}`} onClick={this.handleSwitch}>
+						<FontAwesome id='bell' name="notification" onClick={this.handleSwitch} />&nbsp;Notification
+					</button>
+				</section>
+				<section className="navigationMenu">
+					<button name='Users' className={`navigationItem ${active === navigationIndexer.news ? 'activeItem' : ''}`} onClick={this.handleSwitch}>
+						<FontAwesome id='icons' name="news" onClick={this.handleSwitch} />&nbsp; News
 					</button>
 				</section>
 				<section className="navigationMenu">

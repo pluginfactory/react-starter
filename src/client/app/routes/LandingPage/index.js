@@ -97,7 +97,7 @@ class LandingPage extends Component {
 					<Col md={4} sm={3} xs={2}></Col>
 					<Col md={4} sm={6} xs={8}>
 						<p className='text-center'>
-							<h2 className='logo-text'>PluginFactory ReactJS Scaffold</h2>
+							<h2 className='logo-text'>Beat-Box Admin</h2>
 						</p>
 						<section className='user-login' id='user-login'>
 							<Form>
@@ -115,7 +115,7 @@ class LandingPage extends Component {
 							</Form>
 							<br/><br/><br/>
 							<hr className='line-break'/>
-							<p className='text-center'>PluginFactory&copy;2019</p>
+							<p className='text-center'>BeatBox&copy;2019</p>
 						</section>
 					</Col>
 					<Col md={4} sm={3} xs={2}></Col>

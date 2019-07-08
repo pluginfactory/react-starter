@@ -1,6 +1,9 @@
 export { default as fetchReducer } from './fetch';
-export { default as eventsReducer } from './events';
 export { default as loginReducer } from './login';
+export { default as usersReducer } from './user';
+export { default as dashboardReducer } from './dashboard';
+export { default as transactionReducer } from './transaction';
+export { default as newsReducer } from './news';
+export { default as notificationsReducer } from './notification';
 export { default as navigationReducer } from './navigation';
 export { default as errorReducer } from './error';
-export { default as tournamentReducer } from './tournament';

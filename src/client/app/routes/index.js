@@ -14,7 +14,10 @@ import LandingPage from './LandingPage';
 import AdminAccountPage from './Account';
 import DashboardPage from './Dashboard';
 import ContactUsPage from './ContactUs';
-
+import Users from './Users';
+import Transaction from './Transaction';
+import NewsAndUpdate from './NewsAndUpdate';
+import PushNotification from './PushNotification';
 
 // const history = syncHistoryWithStore(hashHistory, InitStore());
 export default () => {
@@ -26,6 +29,10 @@ export default () => {
 				<Route path='/account' component={DashboardPage} />
 				<Route path='/dashboard' component={DashboardPage} />
 				<Route path='/contactUs' component={ContactUsPage} />
+				<Route path='/users' component={Users} />
+				<Route path='/transaction' component={Transaction} />
+				<Route path='/pushNotification' component={PushNotification} />
+				<Route path='/newsAndUpdate' component={NewsAndUpdate} />
 			</Route>
 		</Router>
 	</Provider>;
