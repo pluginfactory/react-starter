@@ -17,7 +17,7 @@ import './index.scss';
 /**
  * This component is used for push notification
  */
-class PushNotifications extends Component {
+class PushNotification extends Component {
 
 	constructor(props) {
 		super(props);
@@ -98,4 +98,4 @@ const mapStateToProps = state => {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps,
-)(PushNotifications);
+)(PushNotification);

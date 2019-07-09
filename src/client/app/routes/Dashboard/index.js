@@ -1,48 +1,83 @@
-import React, { Component } from 'react';
+import React,  { Component } from 'react';
+import {
+	CardColumns,
+	Card,
+	CardBody,
+	CardTitle,
+	CardText,
+} from 'reactstrap';
 import { connect } from 'react-redux';
+import FontAwesome from 'react-fontawesome';
+import LoadingOverlay from '../../components/LoadingOverlay';
+import { fetchStatistics } from '../../redux/actions';
 
-import { navigationIndexer } from '../../constants';
-import { switchNavigation } from '../../redux/actions';
 import './index.scss';
-
 class Dashboard extends Component {
+	constructor(props) {
+		super(props);
+	}
+	componentDidMount() {
+		document.title = 'Dashboard';
 
-	constructor() {
-		super();
+		const { fetching, triggerFetchStatistics } = this.props;
+		// fetch on mounting or tranistioning among pages
+		triggerFetchStatistics();
 	}
 
 	componentDidUpdate() {
-        const { triggerSwitchNavigation } = this.props;
-        document.title = 'Contact Us';
-        triggerSwitchNavigation(navigationIndexer.dashboard);
-    }
+		document.title = 'Dashboard';
+		const { fetching, statistics, triggerFetchStatistics } = this.props;
 
-    componentDidMount() {
-        const { triggerSwitchNavigation } = this.props;
-        document.title = 'Contact Us';
-        triggerSwitchNavigation(navigationIndexer.dashboard);
-    }
+		// console.log(fetching, statistics, triggerFetchStatistics);
+		if (!fetching && !statistics) {
+			console.log('stats fetching');
+			triggerFetchStatistics();
+		}
+	}
 
 	render() {
-		return (
-			<section>
-				<h1>This is the dashboard page.</h1>
-			</section>
-		);
+		const { statistics, fetching } = this.props;
+		return statistics ? <section className='dashboard-container'>
+			{ LoadingOverlay({ show: fetching }) }
+			<h2>Dashboard</h2>
+			<hr/>
+			<CardColumns>
+				<Card inverse color="danger">
+					<CardBody className='text-center'>
+						<CardTitle>Users</CardTitle>
+						<CardText>
+                            <p>Active</p>
+							<h1>
+								{statistics.users.active}
+							</h1>
+                            <p>Deleted</p>
+                            <h1>
+                            {statistics.users.deleted}
+                            </h1>
+                            <p>Blocked</p>
+                            <h1>
+                                {statistics.users.blocked}
+                            </h1>
+						</CardText>
+					</CardBody>
+				</Card>
+				
+				
+			</CardColumns>
+		</section>:
+			fetching ? <p>Loading....</p>: <p>Nothing found.</p>;
 	}
-}
+};
 
 const mapDispatchToProps = dispatch => {
-    return {
-        triggerSwitchNavigation: active => dispatch(switchNavigation({ active })),
-    };
-}
+	return {
+		triggerFetchStatistics: () => dispatch(fetchStatistics({})),
+	};
+};
+
 const mapStateToProps = state => {
-    const { fetching, dashboard } = state;
-    return { fetching, dashboard };
+	const { fetching, dashboard: { statistics } } = state;
+	return { fetching, statistics };
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

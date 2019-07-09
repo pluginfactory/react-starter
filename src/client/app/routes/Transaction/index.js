@@ -37,7 +37,7 @@ class Transaction extends Component {
 
 	componentWillMount() {
 		const { triggerSwitchNavigation, triggerFetchEntity } = this.props;
-		triggerSwitchNavigation(navigationIndexer.transactions);
+		triggerSwitchNavigation(navigationIndexer.transaction);
 		triggerFetchEntity();
 	}
 
@@ -78,8 +78,7 @@ class Transaction extends Component {
 	render() {
 		const {
 			fetching,
-			transactions: {
-				editing,
+			transaction: {
 				data,
 				page,
 				limit,
@@ -88,8 +87,6 @@ class Transaction extends Component {
 				success,
 			},
 			triggerFetchEntity,
-			triggerGenericDeleteEntity,
-			triggerGenericBlockEntity,
 			triggerGenericToggle,
 			triggerNullifyError,
 			triggerNullifySuccess,
@@ -163,7 +160,7 @@ const mapDispatchToProps = dispatch => {
 			payload,
 			page,
 			limit,
-			endpoint: APPLICATION_ROUTES.transactions_LIST,
+			endpoint: APPLICATION_ROUTES.TRANSACTION_LIST,
 		})),
 		triggerNullifyError: () => dispatch(nullifyError()),
 		triggerNullifySuccess: () => dispatch(nullifySuccess()),
@@ -171,8 +168,8 @@ const mapDispatchToProps = dispatch => {
 }
 
 const mapStateToProps = state => {
-	const { fetching, transactions } = state;
-	return { fetching, transactions };
+	const { fetching, transaction } = state;
+	return { fetching, transaction };
 }
 // handles incoming state changes
 

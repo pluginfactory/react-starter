@@ -13,7 +13,6 @@ import InitStore from '../redux/store';
 import LandingPage from './LandingPage';
 import AdminAccountPage from './Account';
 import DashboardPage from './Dashboard';
-import ContactUsPage from './ContactUs';
 import Users from './Users';
 import Transaction from './Transaction';
 import NewsAndUpdate from './NewsAndUpdate';
@@ -28,11 +27,10 @@ export default () => {
 			<Route path="/adminAccount" strict={true} component={AdminAccountPage}>
 				<Route path='/account' component={DashboardPage} />
 				<Route path='/dashboard' component={DashboardPage} />
-				<Route path='/contactUs' component={ContactUsPage} />
 				<Route path='/users' component={Users} />
 				<Route path='/transaction' component={Transaction} />
 				<Route path='/pushNotification' component={PushNotification} />
-				<Route path='/newsAndUpdate' component={NewsAndUpdate} />
+				<Route path='/news' component={NewsAndUpdate} />
 			</Route>
 		</Router>
 	</Provider>;

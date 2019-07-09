@@ -20,7 +20,7 @@ export default (initialState = {}) => createStore(combineReducers({
 	users: reducers.usersReducer,
 	notifications: reducers.notificationsReducer,
 	transaction: reducers.transactionReducer,
-	news: reducers.newsReducer,
+	newsandupdates: reducers.newsReducer,
 	navigation: reducers.navigationReducer,
 	error: reducers.errorReducer,
 	routing: routerReducer,

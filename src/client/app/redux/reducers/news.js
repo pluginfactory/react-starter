@@ -9,6 +9,7 @@ import {
 } from '../actions/actionTypes';
 
 const defaultState = {
+	editing: undefined,
 	data: undefined,
 	page: 0,
 	limit: 30,
@@ -21,6 +22,7 @@ const defaultState = {
  */
 export default (state = defaultState, {
 	type,
+	editing,
 	data = [],
 	page = 1,
 	limit = 10,
@@ -32,6 +34,7 @@ export default (state = defaultState, {
 		case APPLICATION_ROUTES.NEWS_LIST:
 			return Object.assign({}, state, {
 				data,
+				editing,
 				page,
 				limit,
 				length: data.length,

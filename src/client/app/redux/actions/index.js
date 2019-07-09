@@ -6,12 +6,16 @@ export { userLogin } from './login';
 /**
  * admin actions
  */
+export { default as fetchStatistics } from './dashboard';
+
 export { default as switchNavigation } from './navigation';
 
 export {
 	fetchEntity,
 	genericToggle,
 	genericHitEndpoint,
+	genericDeleteEntity,
+    genericBlockEntity,
 	genericCreateEntity,
 	nullifyError,
 	nullifySuccess,

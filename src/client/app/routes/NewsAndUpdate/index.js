@@ -38,7 +38,7 @@ class NewsAndUpdate extends Component {
 
 	componentWillMount() {
 		const { triggerSwitchNavigation, triggerFetchEntity } = this.props;
-		triggerSwitchNavigation(navigationIndexer.NewsAndUpdates);
+		triggerSwitchNavigation(navigationIndexer.news);
 		triggerFetchEntity();
 	}
 
@@ -53,7 +53,7 @@ class NewsAndUpdate extends Component {
 
 	handlePaginationNext(e) {
 		e.preventDefault();
-		const { NewsAndUpdates: { page, limit, length }, triggerFetchEntity } = this.props;
+		const { newsandupdates: { page, limit, length }, triggerFetchEntity } = this.props;
 		toast.dismiss();
 		if (length < limit) {
 			// no more data
@@ -67,7 +67,7 @@ class NewsAndUpdate extends Component {
 	handlePaginationBack(e){
 		e.preventDefault();
 		toast.dismiss();
-		const { NewsAndUpdates: { length, page, limit }, triggerFetchEntity } = this.props;
+		const { newsandupdates: { length, page, limit }, triggerFetchEntity } = this.props;
 		if (page > 1) {
 			triggerFetchEntity(page-1, limit);
 		} else {
@@ -79,7 +79,7 @@ class NewsAndUpdate extends Component {
 	render() {
 		const {
 			fetching,
-			NewsAndUpdates: {
+			newsandupdates: {
 				editing,
 				data,
 				page,
@@ -89,8 +89,6 @@ class NewsAndUpdate extends Component {
 				success,
 			},
 			triggerFetchEntity,
-			triggerGenericDeleteEntity,
-			triggerGenericBlockEntity,
 			triggerGenericToggle,
 			triggerNullifyError,
 			triggerNullifySuccess,
@@ -110,7 +108,7 @@ class NewsAndUpdate extends Component {
 		return <section>
 			{ LoadingOverlay({ show: fetching }) }
 			<ToastContainer />
-			<h2>NewsAndUpdate</h2>
+			<h2>News And Updates</h2>
 			{Pagination({
 				page,
 				limit,
@@ -124,7 +122,7 @@ class NewsAndUpdate extends Component {
 				<thead>
 					<tr>
 						<th className='first-column'>#</th>
-						<th>Name</th>
+						<th>Topic</th>
 					</tr>
 				</thead>
 				<tbody className=''>
@@ -162,7 +160,7 @@ const mapDispatchToProps = dispatch => {
 			payload,
 			page,
 			limit,
-			endpoint: APPLICATION_ROUTES.NewsAndUpdates_LIST,
+			endpoint: APPLICATION_ROUTES.NEWS_LIST,
 		})),
 		triggerNullifyError: () => dispatch(nullifyError()),
 		triggerNullifySuccess: () => dispatch(nullifySuccess()),

@@ -3,4 +3,4 @@
  */
 import { SWITCH_NAVIGATION } from './actionTypes';
 
-export default ({ active = 1 }) => { return { type: SWITCH_NAVIGATION, active }};
+export default ({ active }) => { return { type: SWITCH_NAVIGATION, active }};

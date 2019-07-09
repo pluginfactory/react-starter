@@ -15,6 +15,7 @@ import { connect } from 'react-redux';
 import { userLogin } from '../../redux/actions';
 import { toast, ToastContainer } from 'react-toastify';
 import FontAwesome from 'react-fontawesome';
+import logo from '../../assets/images/logo.png';
 
 import LoadingOverlay from '../../components/LoadingOverlay';
 
@@ -63,13 +64,12 @@ class LandingPage extends Component {
 	 * handle the login payload response
 	 */
 	responseHandler() {
-		const { login: { data: { code, message, data, user } } } = this.props;
+		const { login: { data: { code, message, accessToken } } } = this.props;
 		toast.dismiss();
 		if (code === 100) {
 			toast.success(message);
 			// setup the admin access token and redirect to admin account
-			localStorage.setItem('accessToken', data.accessToken);
-			localStorage.setItem('user', data.user.name);
+			localStorage.setItem('accessToken', accessToken);
 
 			this.props.router.push('/account');
 		} else {
@@ -79,7 +79,7 @@ class LandingPage extends Component {
 
 	componentWillMount() {
 		if (localStorage.getItem('data')) {
-			window.location = '/adminAccount';
+			window.location = '/Account';
 		}
 	}
 
@@ -96,9 +96,9 @@ class LandingPage extends Component {
 				<Row>
 					<Col md={4} sm={3} xs={2}></Col>
 					<Col md={4} sm={6} xs={8}>
-						<p className='text-center'>
-							<h2 className='logo-text'>Beat-Box Admin</h2>
-						</p>
+					<p className='text-center'>
+							<img height="111" width="111" src={logo}/>
+					</p>
 						<section className='user-login' id='user-login'>
 							<Form>
 								<FormGroup>
@@ -128,7 +128,7 @@ class LandingPage extends Component {
 // handles the outgoing dispatches
 const mapDispatchToProps = dispatch => {
 	return {
-		triggerLoginUser: (email, password) => dispatch(userLogin({email, password}))
+		triggerLoginUser: (username, password) => dispatch(userLogin({username, password}))
 	};
 }
 

@@ -126,8 +126,9 @@ class Users extends Component {
 				<thead>
 					<tr>
 						<th className='first-column'>#</th>
-						<th>Name</th>
 						<th>Picture</th>
+						<th>Name</th>
+						<th>Email</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
@@ -137,13 +138,13 @@ class Users extends Component {
 							data.map((users, index) => {
 								return users && users && <tr key={`users-${limit * (page - 1) + (index + 1)}`}>
 									<td>{limit * (page - 1) + (index + 1)}</td>
-									<td>{users.displayName}</td>
-										<td>
-											<Image image={users && users.picture ? `${SERVER_IMAGE_URL}profile/${users.picture}` : undefined}/>&nbsp;{users.name}
-										</td>
+									<td>
+											<Image image={users && users.picture ? `${SERVER_IMAGE_URL}profile/${users.picture}` : undefined}/>
+									</td>
+									<td>{users.name}</td>
+									<td>{users.email}</td>
 										<td>
 											<button 
-											
 											onClick={() => triggerGenericDeleteEntity(users._id, page, limit)}
 											className={'btn btn-sm btn-danger'}>
 												Delete

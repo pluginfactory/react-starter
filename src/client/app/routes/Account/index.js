@@ -56,9 +56,8 @@ class Account extends Component {
 					<i style={{ color: 'silver' }}>{localStorage.getItem('user')}</i> */}
 				</section>
 				<section className="navigationMenu">
-					<p className="navigationHeader">Dashboard</p>
 					<button name='dashboard' className={`navigationItem ${active === navigationIndexer.dashboard ? 'activeItem' : ''}`} onClick={this.handleSwitch}>
-						<FontAwesome id='users' name="events" onClick={this.handleSwitch} />&nbsp; Dashboard
+						<FontAwesome id='dashboard' name="line-chart" onClick={this.handleSwitch} />&nbsp; Dashboard
 					</button>
 				</section>
 				<section className="navigationMenu">
@@ -68,23 +67,17 @@ class Account extends Component {
 				</section>
 				<section className="navigationMenu">
 					<button name='Transaction' className={`navigationItem ${active === navigationIndexer.transaction ? 'activeItem' : ''}`} onClick={this.handleSwitch}>
-						<FontAwesome id='money-check-alt' name="transaction" onClick={this.handleSwitch} />&nbsp; Transaction
+						<FontAwesome id='transaction' name="bank" onClick={this.handleSwitch} />&nbsp; Transaction
 					</button>
 				</section>
 				<section className="navigationMenu">
-					<button name='PushNotification' className={`navigationItem ${active === navigationIndexer.notifications ? 'activeItem' : ''}`} onClick={this.handleSwitch}>
-						<FontAwesome id='bell' name="notification" onClick={this.handleSwitch} />&nbsp;Notification
+					<button name='PushNotification' className={`navigationItem ${active === navigationIndexer.pushNotifications ? 'activeItem' : ''}`} onClick={this.handleSwitch}>
+						<FontAwesome id='bell' name="bell" onClick={this.handleSwitch} />&nbsp;Notification
 					</button>
 				</section>
 				<section className="navigationMenu">
-					<button name='Users' className={`navigationItem ${active === navigationIndexer.news ? 'activeItem' : ''}`} onClick={this.handleSwitch}>
-						<FontAwesome id='icons' name="news" onClick={this.handleSwitch} />&nbsp; News
-					</button>
-				</section>
-				<section className="navigationMenu">
-					<p className="navigationHeader">Contact Us</p>
-					<button name='contactUs' className={`navigationItem ${active === navigationIndexer.contactUs ? 'activeItem' : ''}`} onClick={this.handleSwitch}>
-						<FontAwesome id='tournament' name="tournament" onClick={this.handleSwitch} />&nbsp; Contact Us
+					<button name='News' className={`navigationItem ${active === navigationIndexer.news ? 'activeItem' : ''}`} onClick={this.handleSwitch}>
+						<FontAwesome id='icons' name="list-ul" onClick={this.handleSwitch} />&nbsp; News
 					</button>
 				</section>
 				<section className="navigationMenu">
