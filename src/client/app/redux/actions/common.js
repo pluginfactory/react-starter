@@ -165,12 +165,13 @@ export const genericCreateEntity = ({
 		if (picture) {
 			formData.append('image', picture);
 		}
-		// console.log(payload);
+		 console.log(endpoint);
 		formData.append('data', JSON.stringify(payload));
 		requestHeaders['Content-Type'] = 'multipart/form-data';
 		requestBody = formData;
 	}
 	console.log(requestBody, requestHeaders);
+	alert(payload);
 	axios.post(endpoint, requestBody, { headers: requestHeaders })
 		.then((response) => {
 			const { data: { code, message } } = response;

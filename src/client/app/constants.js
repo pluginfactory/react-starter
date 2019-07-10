@@ -13,7 +13,7 @@ export const APPLICATION_ROUTES = {
 	BLOCK_USER: `${SERVER_BASE_URL}admin/blockUser`,
 	TRANSACTION_LIST: `${SERVER_BASE_URL}admin/transaction`,
 	PUSH_NOTIFICATIONS: `${SERVER_BASE_URL}admin/globalNotification`,
-	NEWS: `${SERVER_BASE_URL}admin/newsAndUpdate`,
+	NEWS_CREATE: `${SERVER_BASE_URL}admin/news`,
 };
 
 export const navigationIndexer = {

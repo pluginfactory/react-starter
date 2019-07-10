@@ -1,0 +1,45 @@
+
+
+
+
+	.absolute-text {
+		position: absolute;
+		display: block;
+		left: 0;
+		bottom: 0;
+		margin-bottom: 5px;
+		width: 100%;
+		text-align: center;
+	}
+	.t {
+		length: 100;
+		width: 100;
+	}
+
+
+	.subtext {
+		font-size: 3vmax;
+		opacity: 0.7;
+	}
+	.border {
+		border-style: ridge;
+    }
+
+.p {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+	}
+	.custum {
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+	}
+	.f {
+		float: right;
+	}
+	.l {
+		float: right;
+	}
