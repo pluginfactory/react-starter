@@ -77,9 +77,10 @@ class Account extends Component {
 				</section>
 				<section className="navigationMenu">
 					<button name='News' className={`navigationItem ${active === navigationIndexer.news ? 'activeItem' : ''}`} onClick={this.handleSwitch}>
-						<FontAwesome id='icons' name="list-ul" onClick={this.handleSwitch} />&nbsp; News
+						<FontAwesome id='icons' name="list-ul" onClick={this.handleSwitch} />&nbsp; News And Updates
 					</button>
 				</section>
+				
 				<section className="navigationMenu">
 					<p className="navigationHeader">Account</p>
 					<button name='logout' className={`navigationItem ${active === navigationIndexer.constants ? 'activeItem' : ''}`} onClick={this.handleLogout}>

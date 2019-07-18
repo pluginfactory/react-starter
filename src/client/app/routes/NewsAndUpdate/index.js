@@ -256,10 +256,10 @@ class NewsAndUpdate extends Component {
 			</Row>
 			<Row className="p">
 				<Col xs="12"><textarea
-					type="textArea"
+					type="text"
 					name="text"
 					placeholder="Add text of news"
-					id="exampleText"
+                    id="exampleText"
 					ref={text => this.text = text}
 				/>
 				</Col>
@@ -272,7 +272,7 @@ class NewsAndUpdate extends Component {
 					type="text"
 					name="text"
 					placeholder="Type your message here"
-					id="exampleText"
+                    id="exampleText"
 					ref={link => this.link = link}
 				/>
 				</Col>
@@ -281,20 +281,24 @@ class NewsAndUpdate extends Component {
 				<Col xs="2">Picture</Col>
 			</Row>
 			<Row className="p">
-				<Col xs="1"><input type="file"  accept="image/*"ref={file => this.file = file} />
+				<Col xs="1"><input type='file' onChange={({target}) => {
+												if (target.file) {
+													selectedImage = target.file;
+												}
+											}} accept='image/*'/>
 				</Col>
 			</Row>
 			<Row className="p"><Col >
 				<Button
 					className='btn btn-sm btn-success'
 					onClick={() => {
-					  //  e.preventDefault();
+                      //  e.preventDefault();
+                      const im = { i: this.selectedImage};
 						const payload = {
 							text: this.text.value,
 							link: this.link.value,
-							images: this.file.value,
 						};
-						triggerCreateEntity({ payload });
+						triggerCreateEntity({ payload , im});
 					}}>
 					Create News
 				</Button>
@@ -307,11 +311,14 @@ class NewsAndUpdate extends Component {
 const mapDispatchToProps = dispatch => {
     return {
         triggerSwitchNavigation: active => dispatch(switchNavigation({ active })),
-        triggerCreateEntity: ({ page = 1, limit = 30, payload }) => dispatch(genericCreateEntity({
+        triggerCreateEntity: ({ page = 1, limit = 30, payload, im }) => dispatch(genericCreateEntity({
             page,
             limit,
+          // picture : { im },
             payload,
             endpoint: APPLICATION_ROUTES.NEWS_CREATE,
+          // multipart : true,
+
         })),
         triggerNullifyError: () => dispatch(nullifyError()),
         triggerNullifySuccess: () => dispatch(nullifySuccess()),

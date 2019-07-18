@@ -33,7 +33,7 @@ export default (state = defaultState, {
 			return Object.assign({}, state, {
 				data,
 				page,
-				limit,
+				limit,  
 				length: data.length,
 			});
 		case ERROR:

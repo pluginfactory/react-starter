@@ -6,7 +6,7 @@
 
 export const SWITCH_NAVIGATION = 'SWITCH_NAVIGATION';
 export const FETCHING = 'FETCHING';
-export const ERROR = 'ERROR'
+export const ERROR = 'ERROR';
 export const LOGIN_FETCH = 'PAYLOAD_LOGIN';
 export const LOGIN_PAYLOAD = 'LOGIN_PAYLOAD';
 

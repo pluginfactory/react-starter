@@ -23,8 +23,9 @@ class PushNotification extends Component {
 		super(props);
 	}
 	componentWillMount() {
-		const { triggerSwitchNavigation } = this.props;
+		const { triggerSwitchNavigation, triggerGenericHitEndpoint } = this.props;
 		triggerSwitchNavigation(navigationIndexer.notifications);
+		triggerGenericHitEndpoint();
 	}
 	/**
 	 * Things to do on component update.

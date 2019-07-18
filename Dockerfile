@@ -1,12 +1,12 @@
 FROM node:carbon
 
-ARG MACHINE_NAME=adeq-webapp
-ENV MACHINE_NAME=${MACHINE_NAME}}
+ARG MACHINE_NAME=beatbox-admin
+ENV MACHINE_NAME=${MACHINE_NAME}
 
 # app directory
-WORKDIR /usr/src/adeq-webapp
-RUN mkdir -p /usr/src/adeq-webapp/logs
-RUN mkdir -p /usr/src/adeq-webapp/downloads
+WORKDIR /usr/src/beatbox-admin
+RUN mkdir -p /usr/src/beatbox-admin/logs
+RUN mkdir -p /usr/src/beatbox-admin/downloads
 
 # install app dependencies
 COPY package.json ./
