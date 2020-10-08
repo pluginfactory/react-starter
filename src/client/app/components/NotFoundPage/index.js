@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router';
 
 import './index.scss';
 
-export default () => 
+export default () =>
 	<Container className='container' id='notfoundcontainer'>
 		<Row>
 			<Col className="">
