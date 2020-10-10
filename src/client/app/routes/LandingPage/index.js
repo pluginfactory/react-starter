@@ -3,14 +3,7 @@
  * @author gaurav sharma
  */
 import React, { useEffect } from 'react';
-import {
-	Container,
-	Row,
-	Col,
-	Form,
-	FormGroup,
-	Label
-} from 'reactstrap';
+
 import { connect } from 'react-redux';
 import { userLogin } from '../../redux/actions';
 import { toast, ToastContainer } from 'react-toastify';
@@ -41,7 +34,7 @@ const LandingPage = (props) => {
 		const loginContainer = document.getElementById('user-login');
 
 		if (bodyContainer.clientWidth >= 720) {
-			const loginMargin = (bodyContainer.clientHeight - loginContainer.clientHeight - 100) / 2;
+			const loginMargin = (bodyContainer.clientHeight - loginContainer.clientHeight - 80) / 2;
 			loginContainer.style.marginTop = `${loginMargin}px`;
 		} else {
 			loginContainer.style.marginTop = '10px';
@@ -76,41 +69,35 @@ const LandingPage = (props) => {
 
 	const { fetching, login } = props;
 	{ login && responseHandler() }
-	return <section className='content' id='content'>
+	return <section className='content' id='content' >
 		{/* <LoadingOverlay fetching={fetching}/> */}
 		<ToastContainer />
 		<section className='transparent-overlay'></section>
 		<br /><br /><br />
 		{/* <HeaderComponent/><br/> */}
-		<Container fluid>
-			<Row>
-				<Col md={4} sm={3} xs={2}></Col>
-				<Col md={4} sm={6} xs={8}>
-					<div className='text-center'>
-						<h2 className='logo-text'>PluginFactory ReactJS Scaffold</h2>
-					</div>
-					<section className='user-login' id='user-login'>
-						<Form>
-							<FormGroup>
-								<Label for="username">Username</Label><br />
-								<input ref={userUname => userUname = userUname} className='custom-field login-field' placeholder='Username for user' />
-							</FormGroup>
-							<FormGroup>
-								<Label for="username">Password</Label><br />
-								<input ref={userPass => userPass = userPass} type='password' className='custom-field login-field' placeholder='Password for user' />
-							</FormGroup>
-							<p className='text-center'>
-								<button className="litnite-btn" onClick={onLogin}>LOGIN&nbsp;&nbsp;&nbsp;<FontAwesome name="chevron-right" /></button>
-							</p>
-						</Form>
-						<br /><br /><br />
-						<hr className='line-break' />
-						<p className='text-center'>PluginFactory&copy;2019</p>
-					</section>
-				</Col>
-				<Col md={4} sm={3} xs={2}></Col>
-			</Row>
-		</Container>
+		<section className='form-container'>
+
+			<div className='text-center'>
+				<h2 className='logo-text'>PluginFactory ReactJS Scaffold</h2>
+			</div>
+			<section className='user-login' id='user-login'>
+
+				<label htmlFor="username">Username</label><br />
+				<input ref={userUname => userUname = userUname} className='custom-field login-field' placeholder='Username for user' />
+
+				<label htmlFor="username">Password</label><br />
+				<input ref={userPass => userPass = userPass} type='password' className='custom-field login-field' placeholder='Password for user' />
+
+				<p className='text-center'>
+					<button className="litnite-btn" onClick={onLogin}>LOGIN&nbsp;&nbsp;&nbsp;<FontAwesome name="chevron-right" /></button>
+				</p>
+
+				<br /><br /><br />
+				<hr className='line-break' />
+				<p className='text-center'>PluginFactory&copy;2019</p>
+			</section>
+
+		</section>
 	</section>
 }
 
