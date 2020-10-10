@@ -27,6 +27,7 @@ export default () => {
 				<Route path='/dashboard' component={DashboardPage} />
 				<Route path='/contactUs' component={ContactUsPage} />
 			</Route>
+
 		</Router>
 	</Provider>;
 }

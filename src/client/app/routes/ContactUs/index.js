@@ -3,7 +3,6 @@
  */
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Table } from 'reactstrap';
 import { toast, ToastContainer } from 'react-toastify';
 import CSVReader from 'react-csv-reader';
 import { APPLICATION_ROUTES, navigationIndexer } from '../../constants';
