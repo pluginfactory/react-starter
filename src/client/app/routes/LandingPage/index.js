@@ -2,7 +2,7 @@
  * @desc this is the admin component of the application.
  * @author gaurav sharma
  */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
 	Container,
 	Row,
@@ -47,12 +47,10 @@ const LandingPage = (props) => {
 			loginContainer.style.marginTop = '10px';
 		}
 	}
-
 	const onLogin = (e) => {
 		e.preventDefault();
 		const { triggerLoginUser } = props;
-
-		triggerLoginUser(userUname.value, userPass.value);
+		triggerLoginUser(user, password);
 	}
 
 	/**
@@ -71,6 +69,11 @@ const LandingPage = (props) => {
 		} else {
 			toast.error("Failed authentication.");
 		}
+	}
+	
+	
+	const onFormValid = () => {
+		return user && password
 	}
 
 
@@ -93,14 +96,14 @@ const LandingPage = (props) => {
 						<Form>
 							<FormGroup>
 								<Label for="username">Username</Label><br />
-								<input ref={userUname => userUname = userUname} className='custom-field login-field' placeholder='Username for user' />
+								<input onChange={e => setUser(e.target.value)} className='custom-field login-field' placeholder='Username for user' />
 							</FormGroup>
 							<FormGroup>
 								<Label for="username">Password</Label><br />
-								<input ref={userPass => userPass = userPass} type='password' className='custom-field login-field' placeholder='Password for user' />
+								<input onChange={e => setPassword(e.target.value)} type='password' className='custom-field login-field' placeholder='Password for user' />
 							</FormGroup>
 							<p className='text-center'>
-								<button className="litnite-btn" onClick={onLogin}>LOGIN&nbsp;&nbsp;&nbsp;<FontAwesome name="chevron-right" /></button>
+								<button className="litnite-btn" onClick={onLogin} disabled={!onFormValid()}>LOGIN&nbsp;&nbsp;&nbsp;<FontAwesome name="chevron-right" /></button>
 							</p>
 						</Form>
 						<br /><br /><br />
