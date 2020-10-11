@@ -2,12 +2,12 @@
  * @desc this is the admin component of the application.
  * @author gaurav sharma
  */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { connect } from 'react-redux';
 import { userLogin } from '../../redux/actions';
 import { toast, ToastContainer } from 'react-toastify';
-import FontAwesome from 'react-fontawesome';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 import LoadingOverlay from '../../components/LoadingOverlay';
 
@@ -15,6 +15,9 @@ import './index.scss';
 
 
 const LandingPage = (props) => {
+	const [user, setUser] = useState("")
+	const [password, setPassword] = useState("")
+
 	useEffect(() => {
 		if (localStorage.getItem('data')) {
 			window.location = '/adminAccount';
@@ -44,8 +47,7 @@ const LandingPage = (props) => {
 	const onLogin = (e) => {
 		e.preventDefault();
 		const { triggerLoginUser } = props;
-
-		triggerLoginUser(userUname.value, userPass.value);
+		triggerLoginUser(user, password);
 	}
 
 	/**
@@ -66,6 +68,9 @@ const LandingPage = (props) => {
 		}
 	}
 
+	const onFormValid = () => {
+		return user && password
+	}
 
 	const { fetching, login } = props;
 	{ login && responseHandler() }
@@ -83,13 +88,15 @@ const LandingPage = (props) => {
 			<section className='user-login' id='user-login'>
 
 				<label htmlFor="username">Username</label><br />
-				<input ref={userUname => userUname = userUname} className='custom-field login-field' placeholder='Username for user' />
+				<input onChange={e => setUser(e.target.value)} className='custom-field login-field' placeholder='Username for user' />
 
 				<label htmlFor="username">Password</label><br />
-				<input ref={userPass => userPass = userPass} type='password' className='custom-field login-field' placeholder='Password for user' />
+				<input onChange={e => setPassword(e.target.value)} type='password' className='custom-field login-field' placeholder='Password for user' />
 
 				<p className='text-center'>
-					<button className="litnite-btn" onClick={onLogin}>LOGIN&nbsp;&nbsp;&nbsp;<FontAwesome name="chevron-right" /></button>
+					<button className="litnite-btn" onClick={onLogin} disabled={!onFormValid()}><span className="content-center">
+						LOGIN&nbsp;<ChevronRightIcon />
+					</span></button>
 				</p>
 
 				<br /><br /><br />
