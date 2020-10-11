@@ -10,7 +10,7 @@ import Dashboard from '../Dashboard';
 import Image from '../../components/Image';
 import logo from '../../assets/images/logo.png';
 import './index.scss';
-
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const Account = (props) => {
 
@@ -60,8 +60,8 @@ const Account = (props) => {
 			<section className="navigationMenu">
 				<p className="navigationHeader">Account</p>
 				<button name='logout' className={`navigationItem ${active === navigationIndexer.constants ? 'activeItem' : ''}`} onClick={handleLogout}>
-					<FontAwesome id='logout' name="sign-out" onClick={handleSwitch} />&nbsp; Logout
-					</button>
+					<span className="content-center"><ExitToAppIcon fontSize="small" id='logout' name="sign-out" onClick={handleSwitch} />&nbsp; Logout</span>
+				</button>
 			</section>
 		</section>
 		<section className='dynamicContainer'>
