@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import FontAwesome from 'react-fontawesome';
 import { browserHistory } from 'react-router';
 
 import { navigationIndexer } from '../../constants';
@@ -48,13 +47,15 @@ const Account = (props) => {
 			<section className="navigationMenu">
 				<p className="navigationHeader">Dashboard</p>
 				<button name='dashboard' className={`navigationItem ${active === navigationIndexer.dashboard ? 'activeItem' : ''}`} onClick={handleSwitch}>
-					<FontAwesome id='events' name="events" onClick={handleSwitch} />&nbsp; Dashboard
+					{/* <FontAwesome id='events' name="events" onClick={handleSwitch} /> */}
+					&nbsp; Dashboard
 					</button>
 			</section>
 			<section className="navigationMenu">
 				<p className="navigationHeader">Contact Us</p>
 				<button name='contactUs' className={`navigationItem ${active === navigationIndexer.contactUs ? 'activeItem' : ''}`} onClick={handleSwitch}>
-					<FontAwesome id='tournament' name="tournament" onClick={handleSwitch} />&nbsp; Contact Us
+					{/* <FontAwesome id='tournament' name="tournament" onClick={handleSwitch} /> */}
+					&nbsp; Contact Us
 					</button>
 			</section>
 			<section className="navigationMenu">
