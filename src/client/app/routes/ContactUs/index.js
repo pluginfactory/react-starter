@@ -1,9 +1,8 @@
 /**
  * feedbacks listing component page route
  */
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Table } from 'reactstrap';
 import { toast, ToastContainer } from 'react-toastify';
 import CSVReader from 'react-csv-reader';
 import { APPLICATION_ROUTES, navigationIndexer } from '../../constants';
@@ -15,30 +14,18 @@ import {
 } from '../../redux/actions';
 import './index.scss';
 
-class ContactUs extends Component {
+const ContactUs = (props) => {
+    const [tournament, setTournament] = useState([])
 
-    constructor(props) {
-        super(props);
-
-        this.tournament = [];
-
-        this.prepareBulkCSVData = this.prepareBulkCSVData.bind(this);
-    }
-
-    componentDidUpdate() {
-        const { triggerSwitchNavigation } = this.props;
+    useEffect(() => {
+        const { triggerSwitchNavigation } = props;
         document.title = 'Contact Us';
         triggerSwitchNavigation(navigationIndexer.contactUs);
-    }
 
-    componentDidMount() {
-        const { triggerSwitchNavigation } = this.props;
-        document.title = 'Contact Us';
-        triggerSwitchNavigation(navigationIndexer.contactUs);
-    }
+    }, [])
 
-    prepareBulkCSVData(data) {
-        const { props: { triggerGenericCreateEntity } } = this;
+    const prepareBulkCSVData = (data) => {
+        const { triggerGenericCreateEntity } = props;
         console.log(data);
         const refactoredRequestData = [];
         const mappings = {
@@ -67,36 +54,34 @@ class ContactUs extends Component {
                 refactoredRequestData.push(instance);
             }
         });
-     console.log(refactoredRequestData);
+        console.log(refactoredRequestData);
         triggerGenericCreateEntity(refactoredRequestData);
     }
+    const {
+        fetching,
+        contactus: {
+            success,
+            error,
+        },
+        triggerNullifyError,
+        triggerNullifySuccess,
+    } = props;
 
-    render() {
-        const {
-            fetching,
-            contactus: {
-                success,
-                error,
-            },
-            triggerNullifyError,
-            triggerNullifySuccess,
-        } = this.props;
-
-        if (error) {
-            toast.dismiss();
-            triggerNullifyError();
-            toast.error(error);
-        }
-        if (success) {
-            toast.dismiss();
-            triggerNullifySuccess();
-            toast.success(success);
-        }
-        return <section>
-            This is the contact us page
-        </section>;
+    if (error) {
+        toast.dismiss();
+        triggerNullifyError();
+        toast.error(error);
     }
+    if (success) {
+        toast.dismiss();
+        triggerNullifySuccess();
+        toast.success(success);
+    }
+    return <section>
+        This is the contact us page
+    </section>;
 }
+
 
 const mapDispatchToProps = dispatch => {
     return {

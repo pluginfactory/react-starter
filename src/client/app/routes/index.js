@@ -7,13 +7,13 @@ import {
 } from 'react-router';
 // import { syncHistoryWithStore } from 'react-router-redux';
 import { Provider } from 'react-redux';
-
 import InitStore from '../redux/store';
+import loadable from "@loadable/component"
 
-import LandingPage from './LandingPage';
-import AdminAccountPage from './Account';
-import DashboardPage from './Dashboard';
-import ContactUsPage from './ContactUs';
+const LandingPage = loadable(() => import("./LandingPage"))
+const AdminAccountPage = loadable(() => import('./Account'))
+const DashboardPage = loadable(() => import('./Dashboard'))
+const ContactUsPage = loadable(() => import('./ContactUs'));
 
 
 // const history = syncHistoryWithStore(hashHistory, InitStore());
@@ -27,6 +27,7 @@ export default () => {
 				<Route path='/dashboard' component={DashboardPage} />
 				<Route path='/contactUs' component={ContactUsPage} />
 			</Route>
+
 		</Router>
 	</Provider>;
 }
