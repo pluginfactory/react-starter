@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import FontAwesome from 'react-fontawesome';
 import { browserHistory } from 'react-router';
@@ -11,74 +11,63 @@ import Image from '../../components/Image';
 import logo from '../../assets/images/logo.png';
 import './index.scss';
 
-class Account extends Component {
-	constructor(props) {
-		super(props);
 
-		this.handleSwitch = this.handleSwitch.bind(this);
-		this.handleLogout = this.handleLogout.bind(this);
-	}
+const Account = (props) => {
 
-	handleSwitch(e) {
-		const { triggerSwitchNavigation } = this.props;
+	useEffect(() => {
+		// if (!localStorage.getItem('accessToken')) {
+		// 	window.location = '/';
+		// }
+		document.title = 'Admin Account';
+	}, [])
+
+	const handleSwitch = (e) => {
+		const { triggerSwitchNavigation } = props;
 		e.preventDefault();
-		const name = e.target.name  || e.target.id;
+		const name = e.target.name || e.target.id;
 		browserHistory.push(`/${name}`);
 		triggerSwitchNavigation(navigationIndexer[name]);
 	}
 
-	componentWillMount() {
-		// if (!localStorage.getItem('accessToken')) {
-		// 	window.location = '/';
-		// }
-	}
-
-	componentDidMount() {
-		document.title = 'Admin Account';
-	}
-
-	handleLogout(e) {
+	const handleLogout = (e) => {
 		e.preventDefault();
-		const { type } = this.props;
+		const { type } = props;
 		localStorage.removeItem('data');
 		localStorage.removeItem('accessToken');
 		window.location = '/';
 
 	}
-
-	render() {
-		const { active } = this.props;
-		return <section>
-			<section className='leftNavigation'>
-				<section className="navigationMenu">
-					<p className='text-center'><Image image={logo} /></p>
-					{/* <p className="navigationHeader">LOGGED USER</p>
+	const { active } = props;
+	return <section>
+		<section className='leftNavigation'>
+			<section className="navigationMenu">
+				<p className='text-center'><Image image={logo} /></p>
+				{/* <p className="navigationHeader">LOGGED USER</p>
 					<i style={{ color: 'silver' }}>{localStorage.getItem('user')}</i> */}
-				</section>
-				<section className="navigationMenu">
-					<p className="navigationHeader">Dashboard</p>
-					<button name='dashboard' className={`navigationItem ${active === navigationIndexer.dashboard ? 'activeItem' : ''}`} onClick={this.handleSwitch}>
-						<FontAwesome id='events' name="events" onClick={this.handleSwitch} />&nbsp; Dashboard
-					</button>
-				</section>
-				<section className="navigationMenu">
-					<p className="navigationHeader">Contact Us</p>
-					<button name='contactUs' className={`navigationItem ${active === navigationIndexer.contactUs ? 'activeItem' : ''}`} onClick={this.handleSwitch}>
-						<FontAwesome id='tournament' name="tournament" onClick={this.handleSwitch} />&nbsp; Contact Us
-					</button>
-				</section>
-				<section className="navigationMenu">
-					<p className="navigationHeader">Account</p>
-					<button name='logout' className={`navigationItem ${active === navigationIndexer.constants ? 'activeItem' : ''}`} onClick={this.handleLogout}>
-						<FontAwesome id='logout' name="sign-out" onClick={this.handleSwitch} />&nbsp; Logout
-					</button>
-				</section>
 			</section>
-			<section className='dynamicContainer'>
-				{this.props.children || <Dashboard />}
+			<section className="navigationMenu">
+				<p className="navigationHeader">Dashboard</p>
+				<button name='dashboard' className={`navigationItem ${active === navigationIndexer.dashboard ? 'activeItem' : ''}`} onClick={handleSwitch}>
+					<FontAwesome id='events' name="events" onClick={handleSwitch} />&nbsp; Dashboard
+					</button>
 			</section>
-		</section>;
-	}
+			<section className="navigationMenu">
+				<p className="navigationHeader">Contact Us</p>
+				<button name='contactUs' className={`navigationItem ${active === navigationIndexer.contactUs ? 'activeItem' : ''}`} onClick={handleSwitch}>
+					<FontAwesome id='tournament' name="tournament" onClick={handleSwitch} />&nbsp; Contact Us
+					</button>
+			</section>
+			<section className="navigationMenu">
+				<p className="navigationHeader">Account</p>
+				<button name='logout' className={`navigationItem ${active === navigationIndexer.constants ? 'activeItem' : ''}`} onClick={handleLogout}>
+					<FontAwesome id='logout' name="sign-out" onClick={handleSwitch} />&nbsp; Logout
+					</button>
+			</section>
+		</section>
+		<section className='dynamicContainer'>
+			{props.children || <Dashboard />}
+		</section>
+	</section>;
 }
 
 const mapDispatchToProps = dispatch => {
